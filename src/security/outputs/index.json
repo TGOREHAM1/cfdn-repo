@@ -1,0 +1,22 @@
+{
+    "SecurityGroupName": {
+        "Description": "Name of Instance Security Group",
+        "Value": {
+            "Ref": "SecurityGroup"
+        }
+    },
+    "SecurityGroupId": {
+        "Description": "ID of Instance Security Group",
+        "Value": {
+            "Fn::GetAtt": [
+                "SecurityGroup",
+                "GroupId"
+            ]
+        },
+        "Export": {
+            "Name": {
+                "Fn::Sub": "${AWS::StackName}-SecurityGroupId"
+            }
+        }
+    }
+}
